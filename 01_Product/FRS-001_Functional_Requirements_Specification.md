@@ -345,3 +345,241 @@ Every organization-level configuration change shall generate an immutable audit 
 - New Value
 - Source IP Address (where available)
 - Device Information (where available)
+
+---
+
+### FR-M001-006 — Organization Configuration
+
+**Priority:** Critical
+
+Each organization shall have an independent configuration profile that controls how the organization operates within TrustOS.
+
+Configuration values shall be isolated per organization and shall not affect any other tenant.
+
+The following settings shall be configurable:
+
+#### General Settings
+
+- Organization Name
+- Short Name
+- Business Registration Number
+- Tax Identification Number (Optional)
+- Official Email Address
+- Official Phone Number
+- Official Website (Optional)
+- Organization Description
+
+#### Regional Settings
+
+- Country
+- State / Province
+- City
+- Preferred Time Zone
+- Preferred Date Format
+- Preferred Time Format
+- Preferred Number Format
+- Default Currency
+- Default Language
+
+#### Financial Settings
+
+- Financial Year Start Date
+- Financial Year End Date
+- Business Operating Days
+- Default Savings Currency
+- Decimal Precision
+- Minimum Transaction Amount
+- Maximum Transaction Amount
+
+#### Branding Settings
+
+- Organization Logo
+- Favicon
+- Primary Brand Color
+- Secondary Brand Color
+- Accent Color
+- Email Header
+- Email Footer
+- Printable Report Header
+- Printable Report Footer
+- Official Stamp (Future)
+
+Changes to organization configuration shall become effective immediately unless otherwise specified.
+
+All configuration changes shall generate audit records.
+
+---
+
+### FR-M001-007 — Organization Profile
+
+**Priority:** High
+
+Every organization shall maintain a master profile containing all organizational information.
+
+The organization profile shall include, but not be limited to:
+
+- Organization ID
+- Organization Name
+- Short Name
+- Registration Number
+- Registration Date
+- Business Category
+- Organization Type
+- Contact Information
+- Head Office Address
+- Operational Status
+- Date Created
+- Last Updated
+- Subscription Plan
+- Total Branches
+- Total Active Users
+- Total Members
+- Organization Owner
+
+The profile shall be viewable only by users with appropriate permissions.
+
+---
+
+### FR-M001-008 — Organization Activation
+
+**Priority:** Critical
+
+A newly created organization shall remain in the **Pending Verification** state until activation requirements have been satisfied.
+
+An organization may only become **Active** after:
+
+- Required profile information has been completed.
+- At least one Super Administrator has been assigned.
+- Default configuration has been generated.
+- System initialization has completed successfully.
+
+Only Active organizations may:
+
+- Register members.
+- Accept savings.
+- Create financial products.
+- Approve loans.
+- Generate financial reports.
+
+---
+
+### FR-M001-009 — Organization Suspension
+
+**Priority:** Critical
+
+The platform shall allow a Super Administrator to suspend an organization.
+
+Suspension shall immediately prevent:
+
+- New member registrations.
+- New savings transactions.
+- New loan applications.
+- Loan approvals.
+- User logins (except authorized platform administrators).
+
+Historical data shall remain accessible to authorized platform administrators for audit purposes.
+
+Suspending an organization shall never delete data.
+
+---
+
+### FR-M001-010 — Organization Archiving
+
+**Priority:** High
+
+Organizations that permanently cease operations may be archived.
+
+Archived organizations shall:
+
+- Become read-only.
+- Reject all financial transactions.
+- Reject all configuration changes.
+- Reject all user modifications.
+- Preserve historical records indefinitely unless removed under an approved data retention policy.
+
+Archiving shall require confirmation by an authorized platform-level administrator.
+
+---
+
+### FR-M001-011 — Default Organization Initialization
+
+**Priority:** Critical
+
+Upon successful creation of a new organization, TrustOS shall automatically initialize the following default resources:
+
+- Default Branch
+- Default Administrator Role
+- Default Staff Roles
+- Default Permission Groups
+- Default Member Statuses
+- Default Loan Statuses
+- Default Savings Statuses
+- Default Notification Templates
+- Default Audit Policies
+- Default Dashboard Configuration
+
+The initialization process shall be atomic.
+
+If any initialization step fails, the organization creation process shall be rolled back and no partial organization data shall remain.
+
+---
+
+### FR-M001-012 — Organization Dashboard
+
+**Priority:** Medium
+
+The system shall provide an organization summary dashboard displaying:
+
+- Organization Name
+- Organization Status
+- Total Branches
+- Total Active Members
+- Total Staff
+- Total Savings Portfolio
+- Total Loan Portfolio
+- Active Loan Count
+- Daily Collections
+- Outstanding Loans
+- Growth Statistics
+- Recent Activities
+- System Health Indicators
+
+Dashboard widgets shall be configurable according to user permissions.
+
+---
+
+### FR-M001-013 — Organization Deletion Policy
+
+**Priority:** Critical
+
+TrustOS shall not support permanent deletion of organizations through the user interface.
+
+Organizations may only be:
+
+- Suspended
+- Archived
+
+Permanent deletion, where legally permitted, shall require an offline administrative maintenance process executed by authorized platform engineers under documented approval procedures.
+
+This restriction exists to preserve financial integrity, auditability, and regulatory compliance.
+
+---
+
+## 3.4 Business Rules
+
+The following business rules apply to the Organization Management module:
+
+- Every organization shall possess exactly one unique Tenant ID.
+- Tenant IDs shall never be reused.
+- Every branch shall belong to exactly one organization.
+- Every user shall belong to exactly one organization unless designated as a platform administrator.
+- Every member shall belong to exactly one organization.
+- Every financial transaction shall belong to exactly one organization.
+- Organizations shall never share operational data.
+- Organization suspension shall never remove historical records.
+- Organization archival shall preserve all audit logs permanently.
+- Configuration changes shall always generate audit entries.
+
+---
+
+**END OF PAGE 4**
