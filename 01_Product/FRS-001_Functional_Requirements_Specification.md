@@ -75,3 +75,152 @@ Where conflicts arise, the following precedence shall apply:
 3. Functional Requirements Specification (FRS-001)
 
 No implementation decision may violate a higher-level governing document.
+
+---
+
+# 2. Functional Module Hierarchy
+
+The TrustOS platform shall be organized into functional modules. Each module represents a major business capability and shall be independently maintainable while integrating seamlessly with other modules.
+
+The initial module hierarchy for TrustOS Version 1.0 is as follows.
+
+## M001 — Organization Management
+
+Responsible for:
+
+- Organization profile
+- Branding
+- Subscription
+- Branches
+- Configuration
+- Tenant settings
+
+---
+
+## M002 — User & Identity Management
+
+Responsible for:
+
+- Users
+- Authentication
+- Roles
+- Permissions
+- Sessions
+- Password management
+- Multi-factor authentication (future)
+
+---
+
+## M003 — Member Management
+
+Responsible for:
+
+- Member registration
+- Member profile
+- Business profile
+- KYC
+- Guarantors
+- Beneficiaries
+- Membership status
+- Membership lifecycle
+
+---
+
+## M004 — Financial Passport
+
+Responsible for:
+
+- Financial identity
+- Membership history
+- Savings history
+- Loan history
+- Achievements
+- Growth Score
+- Reputation profile
+
+---
+
+## M005 — Savings Management
+
+Responsible for:
+
+- Savings products
+- Contributions
+- Savings balances
+- Savings statements
+- Savings rules
+
+---
+
+## M006 — Collections Management
+
+Responsible for:
+
+- Daily collections
+- Field collections
+- Collection officers
+- Collection routes
+- Cash collections
+- Digital collections
+- Collection reconciliation
+
+---
+
+## M007 — Proof of Contribution (POC)
+
+Responsible for:
+
+- POC generation
+- POC validation
+- Transaction verification
+- Receipt reference
+- Immutable transaction identity
+
+Every financial transaction must generate exactly one unique Proof of Contribution (POC).
+
+The POC shall never be modified, deleted or reused.
+
+---
+
+## M008 — Loan Management
+
+Responsible for:
+
+- Loan products
+- Applications
+- Credit assessment
+- Approvals
+- Disbursement
+- Repayment
+- Restructuring
+- Recovery
+- Loan closure
+
+---
+
+## M009 — Accounting Engine
+
+Responsible for:
+
+- Cashbook
+- General Ledger
+- Journals
+- Trial Balance
+- Financial Statements
+
+---
+
+## M010 — Reporting & Analytics
+
+Responsible for:
+
+- Operational reports
+- Financial reports
+- Officer performance
+- Portfolio reports
+- Executive dashboards
+- Regulatory reports
+
+---
+
+The remaining modules shall be defined in subsequent sections of this Functional Requirements Specification.
